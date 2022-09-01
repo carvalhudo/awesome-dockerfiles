@@ -1,9 +1,10 @@
 FROM ubuntu:latest
 
-# docker container run -it --rm --name spotify --device /dev/snd --net=host spotify:latest /bin/bash
+# to run the container:
+# - docker container run -it --rm --name spotify --device /dev/snd --net=host spotify:latest
+
 # TODO: save user data
-# TODO: volume controls
-# TODO: music controls
+# TODO: media controls
 
 # to run GUI application within the container
 ENV DISPLAY :0
@@ -21,4 +22,4 @@ RUN apt update
 RUN apt install spotify-client -y
 
 # launch the application
-CMD ["spotify"]
+ENTRYPOINT ["spotify"]

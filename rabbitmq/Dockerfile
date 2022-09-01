@@ -1,5 +1,8 @@
 FROM ubuntu:latest
 
+# to run the container:
+# - docker container run -p 15672:15672 -p 5672:5672 -it --rm --name rabbitmq rabbitmq:latest
+
 RUN apt update
 RUN apt install erlang rabbitmq-server -y
 
@@ -14,4 +17,4 @@ EXPOSE 5672
 # rabbitmq_management port
 EXPOSE 15672
 
-CMD ["rabbitmq-server", "start"]
+ENTRYPOINT ["rabbitmq-server", "start"]
